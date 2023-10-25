@@ -5,8 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from "@mui/material/Container";
+import { useNavigate } from 'react-router-dom';
 
 const Showproduct = () => {
+
+  const navigate = useNavigate();
 
   const addtoCart = () =>{
 
@@ -19,6 +22,7 @@ const Showproduct = () => {
                   {
                     list.map((val)=>(
                       <Card key={val.id} sx={{ maxWidth: 345 , margin:'20px'}}>
+                        <div onClick={()=>{navigate(`/productdetail/${val.id}`)}} style={{cursor:'pointer'}}>
                           <img src={val.image} alt={val.name} style={{width:'250px', height:'250px', display:'block', margin:'auto', paddingInline:'10px'}} />
                           <CardContent>
                             <Typography style={{textAlign:'center', marginTop:'0px', fontSize:'20px', fontWeight:'bold'}} >
@@ -28,6 +32,8 @@ const Showproduct = () => {
                               LKR: {val.price}
                             </Typography>
                           </CardContent>
+                        </div>
+                          
                           <CardActions>
                             <Button onClick={addtoCart()} style={{display:'block', margin:'auto', backgroundColor:'#7CFC00', color:'black', marginBottom:'5px'}}>Add to Cart</Button>
                           </CardActions>
