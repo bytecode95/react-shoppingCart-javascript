@@ -7,6 +7,11 @@ import Typography from '@mui/material/Typography';
 import Container from "@mui/material/Container";
 
 const Showproduct = () => {
+
+  const addtoCart = () =>{
+
+  }
+
   return (
             <>
               <h1 style={{textAlign:'center', marginTop:'10px', marginBottom:'10px'}}>Product Detail Page</h1>
@@ -14,17 +19,17 @@ const Showproduct = () => {
                   {
                     list.map((val)=>(
                       <Card key={val.id} sx={{ maxWidth: 345 , margin:'20px'}}>
-                          <img src={val.image} alt={val.name} style={{width:'300px', height:'250px', display:'block', margin:'auto'}} />
+                          <img src={val.image} alt={val.name} style={{width:'250px', height:'250px', display:'block', margin:'auto', paddingInline:'10px'}} />
                           <CardContent>
-                            <Typography style={{textAlign:'center', marginTop:'0px'}}  gutterBottom variant="h5">
+                            <Typography style={{textAlign:'center', marginTop:'0px', fontSize:'20px', fontWeight:'bold'}} >
                               {val.name}
                             </Typography>
-                            <Typography style={{textAlign:'center', marginBottom:'0px'}} gutterBottom variant="h6">
-                              {val.price}
+                            <Typography style={{textAlign:'center', marginBottom:'0px'}} >
+                              LKR: {val.price}
                             </Typography>
                           </CardContent>
                           <CardActions>
-                            <Button style={{display:'block', margin:'auto', backgroundColor:'green', color:'black', marginBottom:'5px'}}>Add to Cart</Button>
+                            <Button onClick={addtoCart()} style={{display:'block', margin:'auto', backgroundColor:'#7CFC00', color:'black', marginBottom:'5px'}}>Add to Cart</Button>
                           </CardActions>
                         </Card>
 
