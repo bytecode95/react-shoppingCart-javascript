@@ -6,18 +6,34 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from "@mui/material/Container";
 import { useNavigate } from 'react-router-dom';
+import { useState , useEffect} from 'react';
+
+
+
 
 const Showproduct = () => {
 
   const navigate = useNavigate();
+  const[cartItem, setCartItem] = useState([]);
+  
+  useEffect(() => {
+    // Load previous cart items from local storage on component mount
+    const storedItems = JSON.parse(localStorage.getItem('cart')) || [];
+    setCartItem(storedItems);
 
-  const addtoCart = () =>{
+  }, []);
+  
+  const addtoCart = (item) =>{
+    const updateCart = [...cartItem, item];
+    setCartItem(updateCart);
 
+    // Update local storage with the updated cart items
+    localStorage.setItem('cart', JSON.stringify(updateCart));
   }
 
   return (
             <>
-              <h1 style={{textAlign:'center', marginTop:'10px', marginBottom:'10px'}}>Product Detail Page</h1>
+              <h1 style={{textAlign:'center', marginTop:'20px', marginBottom:'10px'}}>Product Detail Page</h1>
               <Container style={{display:'flex', alignItems:'center', justifyContent:'center', flexWrap:'wrap'}}>
                   {
                     list.map((val)=>(
@@ -35,7 +51,7 @@ const Showproduct = () => {
                         </div>
                           
                           <CardActions>
-                            <Button onClick={addtoCart()} style={{display:'block', margin:'auto', backgroundColor:'#7CFC00', color:'black', marginBottom:'5px'}}>Add to Cart</Button>
+                            <Button onClick={()=>{addtoCart(val)}} style={{display:'block', margin:'auto', backgroundColor:'#7CFC00', color:'black', marginBottom:'5px'}}>Add to Cart</Button>
                           </CardActions>
                         </Card>
 

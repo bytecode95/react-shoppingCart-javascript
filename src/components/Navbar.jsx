@@ -17,7 +17,7 @@ export default function Navbar()  {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar style={{backgroundColor:'#9c0d4e'}} position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -28,7 +28,7 @@ export default function Navbar()  {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography style={{textAlign:'center'}} variant="h5"  sx={{ flexGrow: 1 }}>
             Shopping Cart Application
           </Typography>
           <MenuItem>
