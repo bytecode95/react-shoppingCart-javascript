@@ -7,9 +7,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Navbar()  {
+
+  const navigate = useNavigate();
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -27,7 +32,7 @@ export default function Navbar()  {
             Shopping Cart Application
           </Typography>
           <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton onClick={()=>{navigate('/cartcontent')}} size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <ShoppingCartIcon />
           </Badge>
