@@ -15,6 +15,8 @@ const Showproduct = () => {
 
   const navigate = useNavigate();
   const[cartItem, setCartItem] = useState([]);
+  const[quantity, setQuantity] = useState(0);
+  console.log(quantity);
   
   useEffect(() => {
     // Load previous cart items from local storage on component mount
@@ -24,11 +26,20 @@ const Showproduct = () => {
   }, []);
   
   const addtoCart = (item) =>{
-    const updateCart = [...cartItem, item];
-    setCartItem(updateCart);
+    const productExist = cartItem.some(val => val.id === item.id);
+    
+    if(!productExist){
+      const updateCart = [...cartItem, item];
+      setCartItem(updateCart);
+      setQuantity(quantity+1);
+      // Update local storage with the updated cart items
+      localStorage.setItem('cart', JSON.stringify(updateCart));
+    }else{
+      console.log("item already added!");
+    }
 
-    // Update local storage with the updated cart items
-    localStorage.setItem('cart', JSON.stringify(updateCart));
+
+    
   }
 
   return (

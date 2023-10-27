@@ -5,9 +5,12 @@ import { Route, Routes } from 'react-router-dom'
 import Home from '../pages/Home'
 import CartContent from '../pages/CartContent'
 import Productdetail from '../pages/Productdetail'
+import { useState, useEffect } from 'react'
 
 function App() {
   
+
+
 
   return (
     <>
