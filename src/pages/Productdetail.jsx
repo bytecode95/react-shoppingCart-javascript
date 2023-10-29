@@ -41,6 +41,7 @@ const Productdetail = () => {
               <Typography style={{fontSize:'20px', textAlign:'center', fontWeight:'bold'}} >
                 {product.price}
               </Typography>
+              
               <Typography style={{fontSize:'20px', textAlign:'center', fontWeight:'bold'}} >
               {product.decription}
               </Typography>

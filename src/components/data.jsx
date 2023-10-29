@@ -21,6 +21,7 @@ const list = [
         name: 'Acer',
         price: 1500,
         image: image1,
+        quantity: 50,
         decription:'Good Quality product',
       },
       {
@@ -28,6 +29,7 @@ const list = [
         name: 'Azus',
         price: 2400,
         image: image2,
+        quantity: 150,
         decription:'Good Quality product',
       },
       {
@@ -35,6 +37,7 @@ const list = [
         name: 'Apple iPad',
         price: 1000,
         image: image3,
+        quantity: 250,
         decription:'Good Quality product',
       },
       {
@@ -42,6 +45,7 @@ const list = [
         name: 'Appel iPhone',
         price: 1200,
         image: image4,
+        quantity: 50,
         decription:'Good Quality product',
       },
       {
@@ -49,6 +53,7 @@ const list = [
         name: 'Tablet',
         price: 750,
         image: image5,
+        quantity: 100,
         decription:'Good Quality product',
       },
       {
@@ -56,6 +61,7 @@ const list = [
         name: 'Headphone-white',
         price: 450,
         image: image6,
+        quantity: 50,
         decription:'Good Quality product',
       },
       {
@@ -63,6 +69,7 @@ const list = [
         name: 'i-watch-gray',
         price: 700,
         image: image7,
+        quantity: 20,
         decription:'Good Quality product',
       },
       {
@@ -70,6 +77,7 @@ const list = [
         name: 'Lenavo Tablet',
         price: 800,
         image: image8,
+        quantity: 50,
         decription:'Good Quality product',
       },
       {
@@ -77,6 +85,7 @@ const list = [
         name: 'Lenavo Tablet-pro',
         price: 900,
         image: image9,
+        quantity: 150,
         decription:'Good Quality product',
       },
       {
@@ -84,6 +93,7 @@ const list = [
         name: 'MacBook',
         price: 2000,
         image: image10,
+        quantity: 70,
         decription:'Good Quality product',
       },
       {
@@ -91,6 +101,7 @@ const list = [
         name: 'Appel watch ultra',
         price: 800,
         image: image11,
+        quantity: 50,
         decription:'Good Quality product',
       },
       {
@@ -98,6 +109,7 @@ const list = [
         name: 'Nokia 3301',
         price: 250,
         image: image12,
+        quantity: 150,
         decription:'Good Quality product',
       },
       {
@@ -105,6 +117,7 @@ const list = [
         name: 'HeadPhone-black-wireless',
         price: 670,
         image: image13,
+        quantity: 250,
         decription:'Good Quality product',
       },
       {
@@ -112,6 +125,7 @@ const list = [
         name: 'Headphone-wireless',
         price: 1000,
         image: image14,
+        quantity: 100,
         decription:'Good Quality product',
       },
       {
@@ -119,6 +133,7 @@ const list = [
         name: 'Samsung Galaxy',
         price: 500,
         image: image15,
+        quantity: 150,
         decription:'Good Quality product',
       }
 ];
