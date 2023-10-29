@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 const Productdetail = ({updateCart}) => {
   const [product, setProduct] = useState([]);
   const {id} = useParams();
-
+  const [amount, setAmount] = useState(1);
 
   
 
@@ -27,13 +27,6 @@ const Productdetail = ({updateCart}) => {
     getProductbyID();
    
   },[id])
-
- 
-
-  const updateCart = (item, amount) =>{
-    
- 
-  }
 
 
 
@@ -60,7 +53,7 @@ const Productdetail = ({updateCart}) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button onClick={updateCart(product,amount )} style={{display:'block', margin:'auto', backgroundColor:'Yellow', color:'black', fontWeight:'bold'}}>Update cart</Button>
+              <Button onClick={()=>{updateCart(product,amount)}} style={{display:'block', margin:'auto', backgroundColor:'Yellow', color:'black', fontWeight:'bold'}}>Update cart</Button>
             </CardActions>
         </Card>
 

@@ -27,8 +27,16 @@ function App() {
     } 
   }
 
-  const updateCart = () =>{
+  const updateCart = (item, amount) =>{
+    const productExist = cartItem.some(val => val.id === item.id);
     
+    if(!productExist){
+        setCartItem([...cartItem, {...item, qty:amount}])
+    }else{
+      setCartItem(cartItem.map((val) => val.id === item.id ?
+      {...val, qty: parseInt(amount) + parseInt(val.qty)} : val)
+  );
+    } 
   }
 
 
