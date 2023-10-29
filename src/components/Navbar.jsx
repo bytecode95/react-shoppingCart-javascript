@@ -8,10 +8,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import { useNavigate } from 'react-router-dom';
-import { useMyContext } from '../context/quantty';
 
-export default function Navbar()  {
-  const { value } = useMyContext();
+
+export default function Navbar({cartItem, warning})  {
+  //console.log(cartItem);
+  //console.log(cartItem.length);
   const navigate = useNavigate();
 
 
@@ -33,7 +34,7 @@ export default function Navbar()  {
           </Typography>
           <MenuItem>
         <IconButton onClick={()=>{navigate('/cartcontent')}} size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={value} color="error">
+          <Badge badgeContent={cartItem.length} color="error">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>

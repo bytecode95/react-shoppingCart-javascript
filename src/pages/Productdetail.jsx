@@ -7,15 +7,13 @@ import { Container } from '@mui/material';
 import list from '../components/data';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import {useMyContext} from '../context/quantty'
 
-const cartFromlocalStorage = JSON.parse(localStorage.getItem('cartItems') || '[]')
-const Productdetail = () => {
+
+const Productdetail = ({updateCart}) => {
   const [product, setProduct] = useState([]);
   const {id} = useParams();
-  const [amount, setAmount] = useState(0);
-  
-  const [cartItem, setCartItem] = useState(cartFromlocalStorage);
+
+
   
 
 
@@ -33,20 +31,7 @@ const Productdetail = () => {
  
 
   const updateCart = (item, amount) =>{
-    const productExist = cartItem.some(val => val.id === item.id);
-    if(productExist){
-      console.log("item already in the cart!");
-    }else{
-      setCartItem((prevCartItems) => {
-        const updatedCart = [...prevCartItems, item];
-        setValue((prevQuantity) => prevQuantity + (amount));
-        // Update local storage with the updated cart items
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-         // Call setValue with the updated quantity
-        setValue(amount);
-        return updatedCart;
-      });
-    }
+    
  
   }
 

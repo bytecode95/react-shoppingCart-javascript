@@ -7,45 +7,14 @@ import Typography from '@mui/material/Typography';
 import Container from "@mui/material/Container";
 import { useNavigate } from 'react-router-dom';
 import { useState , useEffect} from 'react';
-import {useMyContext} from '../context/quantty'
 
 
 
-const Showproduct = () => {
+
+const Showproduct = ({addtoCart}) => {
 
   const navigate = useNavigate();
-  const[cartItem, setCartItem] = useState([]);
-  const[quantity, setQuantity] = useState(0);
-  const { setValue } = useMyContext(0);
- 
-  
-  useEffect(() => {
-    // Load previous cart items from local storage on component mount
-    const storedItems = JSON.parse(localStorage.getItem('cart')) || [];
-    setCartItem(storedItems);
 
-  }, []);
-  
-  const addtoCart = (item) =>{
-    const productExist = cartItem.some(val => val.id === item.id);
-    
-    if(!productExist){
-        setCartItem((prevCartItems) => {
-        const updatedCart = [...prevCartItems, item];
-        setQuantity((prevQuantity) => prevQuantity + 1);
-        // Update local storage with the updated cart items
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-         // Call setValue with the updated quantity
-        setValue(quantity + 1);
-        return updatedCart;
-      });
-    }else{
-      console.log("item already added!");
-    }
-   
-    
-    
-  }
 
   return (
             <>

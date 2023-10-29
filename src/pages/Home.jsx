@@ -1,9 +1,9 @@
 import React from 'react'
 import Showproduct from '../components/Showproduct'
 
-const Home = () => {
+const Home = ({addtoCart}) => {
   return (
-    <Showproduct/>
+    <Showproduct addtoCart={addtoCart}/>
   )
 }
 
