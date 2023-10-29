@@ -7,8 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Container } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate} from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import LockIcon from '@mui/icons-material/Lock';
 
 
 
@@ -17,6 +18,19 @@ const CartContent = ({cartItem, setCartItem, adding, removing}) => {
 
 
   const navigate = useNavigate();
+  const [price, setPrice] = useState(0);
+    useEffect(()=>{
+        handlePrice();
+    })
+
+
+    const handlePrice = ()=>{
+      let ans = 0;
+      cartItem.map((item)=>(
+          ans += item.qty * item.price
+      ))
+      setPrice(ans);
+  }
 
   return (
     <Container style={{marginTop:'50px'}}>
@@ -30,7 +44,7 @@ const CartContent = ({cartItem, setCartItem, adding, removing}) => {
               <TableCell>name</TableCell>
               <TableCell>adjustment</TableCell>
               <TableCell>quantity</TableCell>
-              <TableCell>price</TableCell>
+              <TableCell>price($)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -47,13 +61,21 @@ const CartContent = ({cartItem, setCartItem, adding, removing}) => {
                   <button  onClick={()=>removing(val, -1)}>-</button>
                 </TableCell>
                 <TableCell >{val.qty}</TableCell>
-                <TableCell >{val.price}</TableCell>
+                <TableCell >{`${val.price * val.qty}`}</TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
+      {(cartItem).length > 0 && (
+                    <div style={{marginTop:'20px'}}>
+                        <div style={{textAlign:'center', fontSize:'15px', fontWeight:'bold'}}>
+                            <span>Subtotal of your Cart:</span>
+                            <span style={{marginLeft:'5px'}}>$ - {price} </span>
+                        </div>
+                    </div>
 
+                )}
     </Container>
    
   )
