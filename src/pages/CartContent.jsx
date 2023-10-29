@@ -9,28 +9,20 @@ import Paper from '@mui/material/Paper';
 import { Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 
 
-const CartContent = () => {
+const CartContent = ({cartItem, setCartItem, adding, removing}) => {
+ 
+
+
   const navigate = useNavigate();
 
   return (
     <Container style={{marginTop:'50px'}}>
       <h2 style={{textAlign:'center', color:'green'}}>CartContent</h2>
       <button onClick={()=>{navigate('/')}} style={{padding:'10px', paddingInline:'25px' ,backgroundColor:'black', borderRadius:'15px', color:'white', marginBottom:'15px', display:'block', margin:'auto', cursor:'pointer'}}>Continue Shopping</button>
-       <TableContainer component={Paper}>
+       <TableContainer style={{marginTop:'50px'}} component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -42,18 +34,20 @@ const CartContent = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {cartItem.map((val, index) => (
               <TableRow
-                key={row.name}
+                key={index}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
-                  {row.name}
+                <TableCell ><img style={{width:'50px', height:'50px'}} src={val.image}/></TableCell>
+                <TableCell >{val.name}</TableCell>
+                <TableCell>
+                  <button  onClick={()=>adding(val, +1)} >+</button>
+                  <button  >{val.qty}</button>
+                  <button  onClick={()=>removing(val, -1)}>-</button>
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell >{val.qty}</TableCell>
+                <TableCell >{val.price}</TableCell>
               </TableRow>
             ))}
           </TableBody>

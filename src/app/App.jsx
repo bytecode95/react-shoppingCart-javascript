@@ -39,7 +39,23 @@ function App() {
     } 
   }
 
+  const adding = (item) =>{
+    setCartItem(cartItem.map((val) => val.id === item.id ?
+                {...val, qty: val.qty + 1} : val)
+            );
+  }
 
+  const removing = (item) =>{
+    const ProductExist = cartItem.find((val) => val.id === item.id);
+        if (ProductExist.qty === 1) {
+            setCartItem(cartItem.filter((x) => x.id !== item.id));
+        } else {
+            setCartItem(cartItem.map((val) => val.id === item.id ? {
+                ...ProductExist,
+                qty: ProductExist.qty- 1
+            } : val))
+        }
+  }
 
   useEffect(() => {
     localStorage.setItem('cartItem', JSON.stringify(cartItem));
@@ -52,7 +68,7 @@ function App() {
       <Navbar cartItem={cartItem} warning={warning} />
       <Routes>
         <Route path={'/'} element={<Home addtoCart={addtoCart}/>}/>
-        <Route path={'/cartcontent'} element={<CartContent/>}/>
+        <Route path={'/cartcontent'} element={<CartContent cartItem={cartItem} setCartItem={setCartItem} adding={adding} removing={removing} />}/>
         <Route path={'/productdetail/:id'} element={<Productdetail updateCart={updateCart}/>}/>
       </Routes>
     </>
