@@ -1,7 +1,7 @@
 # React Shopping Cart Application - <span style="color:yellow">JavaScript</span>
 
-<img src="src\assets\project\Image1.png" alt="Image1" width="400">
-<img src="src\assets\project\Image2.png" alt="Image1" width="400">
+<img src="src\assets\project\Image1.png" alt="Image1" width="600">
+<img src="src\assets\project\Image2.png" alt="Image1" width="600">
 
 [Live DEMO](src\assets\project\project.mp4)
 
